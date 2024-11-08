@@ -36,7 +36,7 @@ class LinkedInScraper:
         self.page.fill("#username", self.username)
         self.page.fill("#password", self.password)
         self.page.click('button[type="submit"]')
-        self.page.wait_for_load_state("networkidle")
+        self.page.wait_for_load_state("domcontentloaded")
 
         # After login LindkedIn redirects to /feed page
         if "feed" not in self.page.url:
@@ -47,7 +47,7 @@ class LinkedInScraper:
 
     def _navigate_to_profile(self, profile_url):
         self.page.goto(profile_url)
-        self.page.wait_for_load_state("networkidle")
+        self.page.wait_for_load_state("domcontentloaded")
 
     def _scrape_profile_data(self):
         name = self.page.text_content(".text-heading-xlarge")
@@ -65,7 +65,7 @@ class LinkedInScraper:
     def _navigate_to_recent_posts(self, profile_url):
         feeds_url = f"{profile_url}/recent-activity/all/"
         self.page.goto(feeds_url)
-        self.page.wait_for_load_state("networkidle")
+        self.page.wait_for_load_state("domcontentloaded")
 
     def _scrape_recent_posts(self):
         posts = []
