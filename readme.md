@@ -6,3 +6,5 @@ Update username and password in main.py
    playwright install chromium
    python main.py
 ```
+python -m venv .venv
+source .venv/Script/activate

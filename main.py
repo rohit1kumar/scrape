@@ -92,8 +92,8 @@ class LinkedInScraper:
 
 
 if __name__ == "__main__":
-    username = os.getenv("USERNAME")
-    password = os.getenv("PASSWORD")
+    username = os.getenv("LINKEDIN_USERNAME")
+    password = os.getenv("LINKEDIN_PASSWORD")
     profile_url = "https://www.linkedin.com/in/aniket-bajpai"
 
     scraper = LinkedInScraper(username, password)
