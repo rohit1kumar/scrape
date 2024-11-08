@@ -1,5 +1,8 @@
+import os
 from playwright.sync_api import sync_playwright
 import logging
+from dotenv import load_dotenv
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -89,8 +92,8 @@ class LinkedInScraper:
 
 
 if __name__ == "__main__":
-    username = "my_username"
-    password = "my_password"
+    username = os.getenv("USERNAME")
+    password = os.getenv("PASSWORD")
     profile_url = "https://www.linkedin.com/in/aniket-bajpai"
 
     scraper = LinkedInScraper(username, password)
